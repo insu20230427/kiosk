@@ -13,14 +13,20 @@ public class 잉닭수발 {
 
         Order order = new Order();
         // order클래스의 참조변수
+
         List<Product> productList = new ArrayList<>();
-        // scanner, order, Product타입의 List 인터페이스의 productList
+        // ArrayList객체의 Product객체를 직접참조하는 변수 productList
+        // 즉 Product객체를 직접참조하는 변수는 productList,cart가 존재함.
 
         productList.add(new Product("숯불무뼈닭발(1인분)", 8.0, "함 잡숴봐"));
         productList.add(new Product("숯불뼈닭발(1인분)", 7.5, "귀찮지만 함 잡숴봐"));
         productList.add(new Product("국물무뼈닭발(1인분)", 9.0, "술떙김"));
         productList.add(new Product("국물뼈닭발(1인분)", 8.5, "귀찮지만 술떙김"));
-        // ArrayList에 메뉴 추가
+        productList.add(new Product("푸딩계란찜", 3.0, "푸딩보다 더 푸딩임"));
+        productList.add(new Product("참치마요 주먹밥", 4.0, "참치마요랑 결혼할래.."));
+        productList.add(new Product("케요네즈 샐러드", 3.0, "싱싱하다 싱싱해"));
+
+        // ArrayList의 Product객체에 메뉴 추가
 
         while (true) {
             System.out.println("\n 잉닭수발에 오신것을 환영합니다!~!");
@@ -32,7 +38,7 @@ public class 잉닭수발 {
 
             String input = scanner.nextLine();
             switch (input) {
-                // case 1이면
+
                 case "1":
                     // 메뉴판 보기
                     while (true) {
@@ -40,28 +46,37 @@ public class 잉닭수발 {
                         for (int i = 0; i < productList.size(); i++) {
 
                             Product product = productList.get(i);
-                            // 닭발 메뉴 4가지 불러오기
+                            // get(i)를 이용하여 해당 요소들의 참조변수들을 대입, 각 참조변수의 주소값이 저장됨
 
                             System.out.println((i + 1) + ". " + product.name + " | W " + product.price + " | " + product.description);
+                            // product가 참조하는 객체 = 각 요소들, 즉 각 요소들의 name, price, description 가져와 출력
                         }
-                        System.out.println("5. 돌아가기 ");
+                        System.out.println("0. 돌아가기 ");
                         System.out.print("선택: ");
                         input = scanner.nextLine();
 
-                        if (input.equals("5")) {
+                        if (input.equals("0")) {
+                            // 0을 누르면 case1의 while문 종료
                             break;
                         } else {
                             int productIndex = Integer.parseInt(input) - 1;
-                            // 정수로 반환해서 가져옴, -1 ㅡ> index 맞춰주기
-                            // ex) Integer.parseInt(input) = 4라면 index = 4
+                            // 정수로 반환해서 가져옴, 0이 아니면 input의 값에 대한 index값 반환
+                            // 예를들어 input = 4가 입력되면 Integer.parseInt(input) - 1 = 3
 
                             Product product = getSelectedProduct(productIndex, productList);
-                            // 해당 메서드로 받아온 값을 Product타입 product로 받음
-                            // 어떤걸 받냐면 productList의 각 순번에 해당하는 요소값 받음
-                            // 이 요소값들을 product에
+                            // productInedx라는 인덱스값과, productList라는 객체를 던져줌
+                            // input을 넣어 얻은 Index값과 productList객체를 전달
+                            // product는 그 객체의 Index에 해당하는 요소의 주소값을 받았기 때문에 해당요소에 직접참조 가능
+
 
                             if (product != null) {
+                            // product가 해당 인덱스의 요소값을 참조할 수 있을 때 실행
+                            // 즉, 1 ~ 6의 번호가 아닌 값을 받으면 실행하지 x
+
                                 System.out.println("\"" + product.name + "    | W " + product.price + " | " + product.description + "\"");
+                                // product가 참조하는 객체의 요소가 존재할때 실행
+                                // product가 참조하는 객체 = 각 요소들, 즉 각 요소들의 name, price, description 가져오기
+
                                 System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
                                 System.out.println("1. 확인        2. 취소");
                                 input = scanner.nextLine();
@@ -75,6 +90,7 @@ public class 잉닭수발 {
                                 }
                             } else {
                                 System.out.println("올바른 상품 번호를 입력해주세요.");
+                                //  1 ~ 6의 번호가 아닌 값을 받으면 올바른 상품 번호를 입력하라고 알려줌
                             }
                         }
                     }
@@ -91,6 +107,7 @@ public class 잉닭수발 {
                             // 주문완료 화면
                             System.out.println("주문이 완료되었습니다!");
                             System.out.println("대기번호는 [ " + order.getOrderCount() + " ] 번 입니다.");
+                            //
                             order.clearCart();
                             try {
                                 Thread.sleep(3000);
@@ -172,7 +189,7 @@ public class 잉닭수발 {
         if (index >= 0 && index < productList.size()) {
             // index : 0 ~ 3
             return productList.get(index);
-            // 0 ~ 3순번 각각에 해당하는 요소 게또해서 반환하기
+            // 0 ~ 3순번 각각에 해당하는 요소 즉 메뉴들을 반환함.
         }
         return null;
     }
