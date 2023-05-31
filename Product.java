@@ -2,8 +2,8 @@ package menu;
 
 class Product extends Menu {
     // 부모클래스 : Menu
-    // Product객체는
     protected double price;
+
 
     public Product(String name, double price, String description) {
         super(name, description);

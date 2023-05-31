@@ -170,7 +170,7 @@ public class 잉닭수발 {
                                     break;
                                 case "3":
                                     break;
-                                    // switch문에서 실행영역이 비어져있을때 break를쓰면 switch문 탈출
+                                    // switch문에서 실행영역이 비어져있을때 break를쓰면 switch문 탈출ehfkahd0
                                 default:
                                     System.out.println("올바른 메뉴 번호를 입력해주세요.");
                                     break;
