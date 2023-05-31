@@ -75,13 +75,15 @@ public class 잉닭수발 {
 
                                 System.out.println("\"" + product.name + "    | W " + product.price + " | " + product.description + "\"");
                                 // product가 참조하는 객체의 요소가 존재할때 실행
-                                // product가 참조하는 객체 = 각 요소들, 즉 각 요소들의 name, price, description 가져오기
+                                // product가 참조하는 객체 = 해당 요소들 즉, 해당요소의 name, price, description 가져오기
 
                                 System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
                                 System.out.println("1. 확인        2. 취소");
                                 input = scanner.nextLine();
                                 if (input.equals("1")) {
                                     order.addToCart(product);
+                                    // 해당 요소를 참조하는 변수를 addToCart에 보내줌
+
                                     System.out.println("메뉴가 장바구니에 추가되었습니다.");
                                 } else if (input.equals("2")) {
                                     System.out.println("메뉴 추가를 취소합니다.");
@@ -100,6 +102,8 @@ public class 잉닭수발 {
                     while (true) {
                         System.out.println("아래와 같이 주문 하시겠습니까?\n");
                         order.viewCart();
+                        // Order객체의 viewCart(); 호출
+                        // 장바구니가 비어있으면 장바구니가 비어있다고 호출해준다.
                         System.out.println("\n1. 주문      2. 메뉴판");
 
                         input = scanner.nextLine();
@@ -107,8 +111,10 @@ public class 잉닭수발 {
                             // 주문완료 화면
                             System.out.println("주문이 완료되었습니다!");
                             System.out.println("대기번호는 [ " + order.getOrderCount() + " ] 번 입니다.");
-                            //
+                            // orderCount 반환해줌
                             order.clearCart();
+                            // orderCount가 증가됨
+
                             try {
                                 Thread.sleep(3000);
                             // Thread.sleep(3000);을 써서 3초 지연시킴
@@ -164,22 +170,24 @@ public class 잉닭수발 {
                                     break;
                                 case "3":
                                     break;
+                                    // switch문에서 실행영역이 비어져있을때 break를쓰면 switch문 탈출
                                 default:
                                     System.out.println("올바른 메뉴 번호를 입력해주세요.");
                                     break;
                             }
-
                             if (input.equals("3")) {
-                                break;
+                                break; // 돌아가기를 선택하면 while 루프를 탈출하여 메인 화면으로 돌아갑니다.
                             }
                         }
                     } else {
                         System.out.println("관리자 비밀번호가 올바르지 않습니다.");
                     }
-                    break;
+                    break; // 관리자 권한 선택이 끝나면 switch 문에서 빠져나와 메인 메뉴로 돌아갑니다.
+
                 default:
                     System.out.println("올바른 메뉴 번호를 입력해주세요.");
                     break;
+
             }
         }
     }
@@ -187,11 +195,12 @@ public class 잉닭수발 {
     private static Product getSelectedProduct(int index, List<Product> productList) {
         //
         if (index >= 0 && index < productList.size()) {
-            // index : 0 ~ 3
+            // index : 0 ~ 5
             return productList.get(index);
-            // 0 ~ 3순번 각각에 해당하는 요소 즉 메뉴들을 반환함.
+            // 0 ~ 5순번에 해당하는 요소의 인덱스 반환
         }
         return null;
+        // index : 0 ~ 5순번에 아니면 null을 보내기
     }
 }
 

@@ -25,10 +25,10 @@ class Order {
     }
 
     public void addToCart(Product product) {
-    // 장바구니 추가 메서드, Product의 참조변수를 받음
-
+    // 해당 요소를 참조하는 요소를 받음
+    // 즉 addToCart를 부르면 그 요소를 참조하는 참조변수를 받게됨
         cart.add(product);
-        // cart를 통해 Product객체에 참조변수 추가
+        // cart가 참조조하는 객체 Product 객체에 넣음
 
         totalSales += product.price;
         // 총 판매 금액 증가
@@ -45,10 +45,14 @@ class Order {
             // Product객체의 요소가 존재하지 않으면 장바구니 비었다고 말해쥼
 
         } else {
+            // Product객체의 요소가 존재하면 실행
+
             System.out.println("[ Orders ]");
             for (Product product : cart) {
-                // product가 cart
+                //product가 cart를 순회함. 즉, cart의 주소값을 순회
+
                 System.out.println(product.name + "    | W " + product.price);
+                // 즉, cart가 참조하는 Product객체의 name, price를 출력하는 것
             }
             System.out.println("\n[ Total ]");
             System.out.println("W " + totalSales);
@@ -58,7 +62,7 @@ class Order {
     public void clearCart() {
         orderCount++;
     }
-    // 카트삭제
+    // 관리자 권한에서 orderCoun
     // clearCart를 호출하면 주문수 증가
 
     public int getOrderCount() {
