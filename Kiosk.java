@@ -24,7 +24,7 @@ public class Kiosk {
         // ArrayList의 Product객체에 메뉴 추가
 
         while (true) {
-            System.out.println("\n * 잉닭SuBar에 오신것을 환영합니다!~! * ");
+            System.out.println("\n* 잉닭SuBar에 오신것을 환영합니다!~! * ");
             System.out.println("\n[ 잉닭SuBar Menu ]");
             System.out.println("1. 닭발 | 맛이 미쳐 돌아버린 닭발" );
             System.out.println("\n[ 결제 Menu ]");
@@ -32,7 +32,7 @@ public class Kiosk {
             System.out.println("3. 결제 취소하기 | 주문한 상품을 결제 취소합니당. ");
             System.out.println("\n[ 관ㄹlㅈr Menu ]");
             System.out.println("0. 관리자 권한 | 비밀번호 못맞츄면 모있는지 모룸 ");
-            System.out.println("\n\n선택: ");
+            System.out.print("\n\n선택: ");
 
             String input = scanner.nextLine();
             switch (input) {
@@ -40,8 +40,8 @@ public class Kiosk {
                 case "1":
                     // 메뉴판 보기
                     while (true) {
-                        System.out.println("\n * 잉닭SuBar에 오신것을 환영합니다!~! *");
-                        System.out.println(" * 아래 메뉴판을 보시고 메뉴를 골라 입력해주쎄용 *");
+                        System.out.println("\n* 잉닭SuBar에 오신것을 환영합니다!~! *");
+                        System.out.println("* 아래 메뉴판을 보시고 메뉴를 골라 입력해주쎄용 *");
                         System.out.println("\n[ 잉닭SuBar 메뉴 ]");
                         for (int i = 0; i < productList.size(); i++) {
 
@@ -52,7 +52,7 @@ public class Kiosk {
                             // product가 참조하는 객체 = 각 요소들, 즉 각 요소들의 name, price, description 가져와 출력
                         }
                         System.out.println("0. 돌아가기 ");
-                        System.out.println("\n 선택: ");
+                        System.out.print("\n 선택: ");
                         input = scanner.nextLine();
 
                         if (input.equals("0")) {
