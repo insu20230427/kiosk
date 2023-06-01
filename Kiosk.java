@@ -2,11 +2,9 @@ package menu;
 
 import java.util.*;
 
-public class 잉닭수발 {
+public class Kiosk {
     private static final String ADMIN_PASSWORD = "0821";
-
-
-
+    
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // Scanner클래스의 참조변수
@@ -26,12 +24,15 @@ public class 잉닭수발 {
         // ArrayList의 Product객체에 메뉴 추가
 
         while (true) {
-            System.out.println("\n 잉닭수발에 오신것을 환영합니다!~!");
-            System.out.println("1. 메뉴판 ");
-            System.out.println("2. 결제하기 ");
-            System.out.println("3. 결제 취소하기 ");
-            System.out.println("0. 관리자 권한 ");
-            System.out.print("선택: ");
+            System.out.println("\n * 잉닭SuBar에 오신것을 환영합니다!~! * ");
+            System.out.println("\n[ 잉닭SuBar Menu ]");
+            System.out.println("1. 닭발 | 맛이 미쳐 돌아버린 닭발" );
+            System.out.println("\n[ 결제 Menu ]");
+            System.out.println("2. 결제하기 | 먹을려면 결제를 합시다. ");
+            System.out.println("3. 결제 취소하기 | 주문한 상품을 결제 취소합니당. ");
+            System.out.println("\n[ 관ㄹlㅈr Menu ]");
+            System.out.println("0. 관리자 권한 | 비밀번호 못맞츄면 모있는지 모룸 ");
+            System.out.println("\n\n선택: ");
 
             String input = scanner.nextLine();
             switch (input) {
@@ -39,7 +40,9 @@ public class 잉닭수발 {
                 case "1":
                     // 메뉴판 보기
                     while (true) {
-                        System.out.println("[ MENU ]");
+                        System.out.println("\n * 잉닭SuBar에 오신것을 환영합니다!~! *");
+                        System.out.println(" * 아래 메뉴판을 보시고 메뉴를 골라 입력해주쎄용 *");
+                        System.out.println("\n[ 잉닭SuBar 메뉴 ]");
                         for (int i = 0; i < productList.size(); i++) {
 
                             Product product = productList.get(i);
@@ -49,7 +52,7 @@ public class 잉닭수발 {
                             // product가 참조하는 객체 = 각 요소들, 즉 각 요소들의 name, price, description 가져와 출력
                         }
                         System.out.println("0. 돌아가기 ");
-                        System.out.print("선택: ");
+                        System.out.println("\n 선택: ");
                         input = scanner.nextLine();
 
                         if (input.equals("0")) {
@@ -70,7 +73,7 @@ public class 잉닭수발 {
                             // product가 해당 인덱스의 요소값을 참조할 수 있을 때 실행
                             // 즉, 1 ~ 6의 번호가 아닌 값을 받으면 실행하지 x
 
-                                System.out.println("\"" + product.name + "    | W " + product.price + " | " + product.description + "\"");
+                                System.out.println("\"" + product.name + " | W " + product.price + " | " + product.description + "\"");
                                 // product가 참조하는 객체의 요소가 존재할때 실행
                                 // product가 참조하는 객체 = 해당 요소들 즉, 해당요소의 name, price, description 가져오기
 
@@ -114,7 +117,7 @@ public class 잉닭수발 {
 
                             try {
                                 Thread.sleep(3000);
-                            // Thread.sleep(3000);을 써서 3초 지연시킴
+                            // Thread.sleep(3000);을 써서 thread를 3초 지연시킴
 
                             } catch (InterruptedException e) {
                             // catch는 try에서 실행한 예외를 잡지만, Thread.sleep는 예외가 아니라 그냥 try실행됨
