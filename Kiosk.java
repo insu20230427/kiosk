@@ -32,7 +32,7 @@ public class Kiosk {
             System.out.println("3. 결제 취소하기 | 주문한 상품을 결제 취소합니당. ");
             System.out.println("\n[ 관ㄹlㅈr Menu ]");
             System.out.println("0. 관리자 권한 | 비밀번호 못맞츄면 모있는지 모룸 ");
-            System.out.print("\n\n선택: ");
+            System.out.print("\n\n번호를 입력해주세요: ");
 
             String input = scanner.nextLine();
             switch (input) {
@@ -52,7 +52,7 @@ public class Kiosk {
                             // product가 참조하는 객체 = 각 요소들, 즉 각 요소들의 name, price, description 가져와 출력
                         }
                         System.out.println("0. 돌아가기 ");
-                        System.out.print("\n 선택: ");
+                        System.out.print("\n번호를 입력해주세요: ");
                         input = scanner.nextLine();
 
                         if (input.equals("0")) {
@@ -78,7 +78,7 @@ public class Kiosk {
                                 // product가 참조하는 객체 = 해당 요소들 즉, 해당요소의 name, price, description 가져오기
 
                                 System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
-                                System.out.println("1. 확인        2. 취소");
+                                System.out.println("1. 넹        2. 아니용");
                                 input = scanner.nextLine();
                                 if (input.equals("1")) {
                                     order.addToCart(product);
@@ -104,7 +104,7 @@ public class Kiosk {
                         order.viewCart();
                         // Order객체의 viewCart(); 호출
                         // 장바구니가 비어있으면 장바구니가 비어있다고 호출해준다.
-                        System.out.println("\n1. 주문      2. 메뉴판");
+                        System.out.println("\n1. 넹      2. 메뉴판으로 돌아가기");
 
                         input = scanner.nextLine();
                         if (input.equals("1")) {
@@ -134,7 +134,7 @@ public class Kiosk {
                 case "3":
                     // 주문 취소 화면
                     System.out.println("결제를 취소하시겠습니까?");
-                    System.out.println("1. 확인      2. 메뉴판");
+                    System.out.println("1. 넹      2. 메뉴판으로 돌아가기");
 
                     input = scanner.nextLine();
                     if (input.equals("1")) {
