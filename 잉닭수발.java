@@ -22,9 +22,6 @@ public class 잉닭수발 {
         productList.add(new Product("숯불뼈닭발(1인분)", 7.5, "귀찮지만 함 잡숴봐"));
         productList.add(new Product("국물무뼈닭발(1인분)", 9.0, "술떙김"));
         productList.add(new Product("국물뼈닭발(1인분)", 8.5, "귀찮지만 술떙김"));
-        productList.add(new Product("푸딩계란찜", 3.0, "푸딩보다 더 푸딩임"));
-        productList.add(new Product("참치마요 주먹밥", 4.0, "참치마요랑 결혼할래.."));
-        productList.add(new Product("케요네즈 샐러드", 3.0, "싱싱하다 싱싱해"));
 
         // ArrayList의 Product객체에 메뉴 추가
 
