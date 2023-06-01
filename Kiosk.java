@@ -112,8 +112,9 @@ public class Kiosk {
                             System.out.println("주문이 완료되었습니다!");
                             System.out.println("대기번호는 [ " + order.getOrderCount() + " ] 번 입니다.");
                             // orderCount 반환해줌
-                            order.clearCart();
-                            // orderCount가 증가됨
+
+                            order.maintainCart();
+                            // clearCart 호출
 
                             try {
                                 Thread.sleep(3000);
@@ -137,7 +138,7 @@ public class Kiosk {
 
                     input = scanner.nextLine();
                     if (input.equals("1")) {
-                        order.clearCart();
+                        order.maintainCart();
                         System.out.println("결제가 취소되었습니다.");
                     } else if (input.equals("2")) {
                         continue;

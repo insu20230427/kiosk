@@ -59,11 +59,10 @@ class Order {
         }
     }
 
-    public void clearCart() {
+    public void maintainCart() {
         orderCount++;
     }
-    // 관리자 권한에서 orderCoun
-    // clearCart를 호출하면 주문수 증가
+    // maintainCart를 호출하면 주문수 증가
 
     public int getOrderCount() {
         return orderCount;
